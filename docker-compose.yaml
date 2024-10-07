@@ -1,0 +1,40 @@
+# version: "3"
+
+# services:
+#   app:
+#     build: .
+#     ports:
+#       - "5555:5555"
+#     volumes:
+#       - /etc/letsencrypt/live/api.supercharge.vn/fullchain.pem:/etc/nginx/ssl/cert.pem
+#       - /etc/letsencrypt/live/api.supercharge.vn/privkey.pem:/etc/nginx/ssl/private.pem 
+version: "3.11"
+
+services:
+  supercharge_backend:
+    build: .
+    # command: uvicorn main:app --host 0.0.0.0 --port 8001
+    ports:
+      - 5555:5555
+    networks:
+      - web
+    volumes:
+      - /etc/letsencrypt/live/api.supercharge.vn/fullchain.pem:/etc/nginx/ssl/cert.pem
+      - /etc/letsencrypt/live/api.supercharge.vn/privkey.pem:/etc/nginx/ssl/private.pem 
+
+  nginx:
+    build: ./nginx
+    ports:
+      - 8080:8080
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - /etc/letsencrypt/live/api.supercharge.vn/fullchain.pem:/etc/nginx/ssl/cert.pem
+      - /etc/letsencrypt/live/api.supercharge.vn/privkey.pem:/etc/nginx/ssl/private.pem 
+    depends_on:
+      - supercharge_backend
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

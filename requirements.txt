@@ -1,0 +1,6 @@
+streamlit
+fastapi
+uvicorn[standard]
+sqlalchemy
+pymysql
+openai==0.28
