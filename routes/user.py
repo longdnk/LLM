@@ -1,4 +1,6 @@
 from fastapi import APIRouter, status, Request, HTTPException
+from models.chat.chat import Chat
+import helper.handle_status as status_handler
 from models.user.user import User, UserEntity
 from database.database import db_dependency
 from fastapi.responses import FileResponse
@@ -10,6 +12,7 @@ import helper.token as token
 import json
 import sys
 from os import path
+from fastapi import Depends
 
 user_router = APIRouter(prefix="/users", tags=["users"])
 
@@ -22,7 +25,12 @@ async def get_all_users(
     try:
         # Truy vấn toàn bộ người dùng
         users = db.query(User).order_by(User.created_at.asc()).all()
+        if users is None:
+            return status_handler.handle_404('users')
+        else:
+            [item.__dict__.pop('password') for item in users]
         # Định dạng trả về đúng yêu cầu
+
         return {
             "message": "OK",
             "code": status.HTTP_200_OK,
@@ -60,7 +68,6 @@ async def create(request: Request, user: UserEntity, db: db_dependency):
         db.rollback()
         return status_handler.handle_500(e)
 
-
 # LOGIN USER
 @user_router.post("/login", status_code=status.HTTP_200_OK)
 async def login(request: Request, user: UserEntity, db: db_dependency):
@@ -76,6 +83,33 @@ async def login(request: Request, user: UserEntity, db: db_dependency):
                 status_code=status.HTTP_404_NOT_FOUND, detail="User not found"
             )
 
+        # Làm mới token
+        new_token = token.create_token()
+        user.token = new_token
+
+        # Lưu token mới vào cơ sở dữ liệu
+        db.commit()
+
+        # Chuyển chat_ids từ JSON sang list thực tế
+        chat_ids = json.loads(user.chat_ids) if isinstance(user.chat_ids, str) else user.chat_ids
+
+        # Nếu không có chat nào, trả về danh sách rỗng
+        if not chat_ids:
+            chat_list = []
+        else:
+            # Truy vấn các Chat tương ứng với chat_ids
+            chats = db.query(Chat).filter(Chat.id.in_(chat_ids)).all()
+
+            # Chuyển các đối tượng Chat thành cấu trúc {role: 'user', content: ''}
+            chat_list = []
+            for chat in chats:
+                chat_list.append({
+                    "id": chat.id,
+                    "title": chat.title,
+                    "role": "user",  # Giả định vai trò là 'user' trong trường hợp này
+                    "content": chat.chunks  # Lấy nội dung từ trường 'chunks' của Chat
+                })
+
         return {
             "message": "Login successful",
             "code": status.HTTP_200_OK,
@@ -84,11 +118,12 @@ async def login(request: Request, user: UserEntity, db: db_dependency):
                 "name": user.name,
                 "token": user.token,
                 "image": user.image,
-                "chat_ids": json.loads(user.chat_ids),
+                "chats": chat_list,  # Trả về danh sách chats đã được định dạng
             },
         }
 
     except SQLAlchemyError as e:
+        db.rollback()  # Rollback nếu có lỗi xảy ra
         return {
             "message": "Error during login",
             "code": status.HTTP_500_INTERNAL_SERVER_ERROR,

@@ -2,10 +2,12 @@ from models.chat.initial_chat import initial_chat
 from models.user.initial_user import initial_user
 from routes.user import user_router
 from routes.chat import chat_router
+from routes.rag import rag_router
 from fastapi import FastAPI
 import argparse
 import uvicorn
 import sys
+import os
 
 sys.dont_write_bytecode = True
 
@@ -21,8 +23,10 @@ parser.add_argument(
     default="dev",
     required=False,
 )
+
 # Parse the arguments
 args = parser.parse_args()
+
 app = FastAPI()
 
 initial_user()
@@ -30,6 +34,7 @@ initial_chat()
 
 app.include_router(user_router)
 app.include_router(chat_router)
+app.include_router(rag_router)
 
 def run_production():
     uvicorn.run(

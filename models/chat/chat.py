@@ -1,8 +1,9 @@
-from sqlalchemy import Column, String, Boolean, Text, DateTime, ForeignKey, ARRAY
+from sqlalchemy import Column, String, Boolean, Text, DateTime, ForeignKey, JSON
 from database.database import Base
 from sqlalchemy.sql import func
 from pydantic import BaseModel
 from datetime import datetime
+from typing import List, Dict, Any
 
 
 # Bảng Chat
@@ -11,7 +12,7 @@ class Chat(Base):
 
     id = Column(String(255), primary_key=True, index=True)
     title = Column(String(255))
-    chunks = Column(ARRAY(Text))  # Mảng 1 chiều chứa các đoạn văn bản
+    chunks = Column(JSON)  # Mảng 1 chiều chứa các đoạn văn bản
 
     # Liên kết với bảng User thông qua user_id
     user_id = Column(String(255), ForeignKey("users.id"))
@@ -22,5 +23,5 @@ class Chat(Base):
 
 class ChatEntity(BaseModel):
     title: str
-    chunks: list[str] = []
+    chunks: List[Dict[str, Any]] = []
     user_id: str

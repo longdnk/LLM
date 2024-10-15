@@ -19,10 +19,6 @@ class User(Base):
         DateTime(timezone=True), server_default=func.now(), default=datetime.utcnow
     )
 
-    # Quan hệ với bảng Chat
-    # chats = relationship("Chat", back_populates="user")
-
-
 class UserEntity(BaseModel):
     name: str
     password: str
