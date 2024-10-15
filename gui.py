@@ -38,8 +38,8 @@ def parse_args():
 
 args = parse_args()
 
-os.environ["OPENAI_API_KEY"] = args.api_key
-os.environ["TAVILY_API_KEY"] = args.tavily_key
+os.environ["OPENAI_API_KEY"] = ""
+os.environ["TAVILY_API_KEY"] = ""
 
 # Hàm để xác thực người dùng
 def login_user(name, password):
