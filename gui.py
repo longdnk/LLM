@@ -8,16 +8,43 @@ from typing import List, Dict
 import argparse
 
 unk_title = [
-    "Cho tôi thông tin tiêu đề bài báo",
-    "Nói về bài báo có tiêu đề",
-    "Thông tin bài báo",
-    "Thông tin của bài báo",
-    "Thông tin báo",
-    "Bài báo có tiêu đề",
-    "Cho tôi biết đoạn",
-    "Hãy cho tôi biết đoạn"
-    "Cho tôi thông tin của đoạn"
+    "Can you share the main content of the article",
+    "Could you summarize this article for me",
+    "What is this article about",
+    "Can you tell me the focus of this article",
+    "What are the key points of this article",
+    "Can you provide detailed information about this article",
+    "What is the main content of this paragraph",
+    "Can you explain the meaning of this paragraph",
+    "Tell me about the content of this article",
+    "What issue does this article address",
+    "Can you analyze the content of this article",
+    "Please tell me the important points in this paragraph",
+    "What is the main content of the article with this title",
+    "Can you summarize the information in this paragraph",
+    "Tell me the main idea of this article",
+    "What is the primary message of the article",
+    "Can you give a brief overview of this article",
+    "What is the article trying to convey",
+    "Could you highlight the most important points in this article",
+    "What is the article’s main subject",
+    "Can you provide a summary of the article's content",
+    "Could you explain the essence of this paragraph",
+    "What’s the crux of this article",
+    "What is this article mainly focused on",
+    "Can you describe the main points discussed in the article",
+    "What core topics are covered in this article",
+    "Can you outline the critical details of the article?",
+    "What is this article trying to explain",
+    "Please summarize the main ideas of this article for me.",
+    "What is the most significant information in this article",
+    "Could you briefly explain the key aspects of this paragraph",
+    "What are the essential elements of this article",
+    "Could you break down the main content of this article",
+    "What does the article mainly talk about",
+    "What’s the overarching theme of this article",
 ]
+
 
 # Hàm phân tích đối số từ dòng lệnh
 def parse_args():
@@ -36,10 +63,12 @@ def parse_args():
     )
     return parser.parse_args()
 
+
 args = parse_args()
 
-os.environ["OPENAI_API_KEY"] = ""
-os.environ["TAVILY_API_KEY"] = ""
+os.environ["OPENAI_API_KEY"] = args.api_key
+os.environ["TAVILY_API_KEY"] = args.tavily_key
+
 
 # Hàm để xác thực người dùng
 def login_user(name, password):
@@ -94,24 +123,28 @@ def update_chat(
     )
     return response.json()
 
+
 def get_info_from_rag(question: str):
+    print(question)
+    prompt_template = f"Answer the question: {question}(Please don't forget put the url in the result i want the result always output urls you use for query, explain the generate result if you can, if result too long please abstractive summarize for me)"
     response = requests.post(
         f"http://127.0.0.1:5555/rags",
-        json={"text": f"{question}"},
+        json={"text": f"{prompt_template}"},
     )
     return response.json()
+
 
 # Hàm để tương tác với OpenAI API
 def get_openai_response(messages):
 
     system_prompt = f"""
-        Bạn là một chatbot với nhiệm vụ là hỏi đáp trên Yahoo Finance,
-        hãy luôn luôn thực hiện nhiệm vụ hỏi đáp trên Yahoo Finance
-        hoặc là giải thích Yahoo Finance là gì hoặc trả lời các câu có liên quan tới Yahoo Finance
-        hoặc là hỏi thông tin các bài báo trên trang Yahoo Finance,
-        nhưng hãy lưu ý không thực hiện bất kỳ tác vụ nào khác nhé, hãy luôn trả lời bằng tiếng Việt,
-        nhưng nếu người dùng chủ động chat bằng tiếng Anh thì bạn cứ thoải mái trả lời bằng tiếng Anh nhé,
-        Lưu ý: với các câu nằm trong tập hợp {unk_title} thì hãy trả lời là "Tôi không biết" nhé.
+        You are a chatbot with the task of answering questions on Yahoo Finance.
+        Always perform the task of answering questions about Yahoo Finance,
+        or explain what Yahoo Finance is, or answer questions related to Yahoo Finance,
+        or inquire about articles on the Yahoo Finance website.
+        However, please note not to perform any other tasks. Always respond in English for me.
+        If user name is Phong or phong you can call him "Hello Mr Gió"
+        Note: For questions within the set {unk_title} or any question you don't know, please answer "I'm searching for more information please wait".
     """
 
     messages_with_system_prompt = [
@@ -145,6 +178,7 @@ def load_chat_id():
             return f.read().strip()
     return None
 
+
 def main():
     st.set_page_config(layout="wide")
 
@@ -171,15 +205,15 @@ def main():
     with st.sidebar:
         st.title("🤖💬 OpenAI Chatbot")
         if st.session_state.user_info is None:
-            name = st.text_input("Tên người dùng")
-            password = st.text_input("Mật khẩu", type="password")
-            if st.button("Đăng nhập", type="primary"):
+            name = st.text_input("User name")
+            password = st.text_input("Password", type="password")
+            if st.button("Login", type="primary"):
                 result = login_user(name, password)
                 if result.get("code") == 200:
                     user_info = result.get("data", {})
                     save_login_info(user_info)
                     st.session_state.user_info = user_info
-                    st.success("Đăng nhập thành công!", icon="✅")
+                    st.success("Login Success!", icon="✅")
 
                     # Lưu chat_id đầu tiên vào file
                     if user_info["chats"]:
@@ -196,10 +230,10 @@ def main():
 
                     st.rerun()
                 else:
-                    st.error("Tên người dùng hoặc mật khẩu không hợp lệ!", icon="🚫")
+                    st.error("User name or password is invalid!", icon="🚫")
         else:
-            st.write(f"Xin chào, {st.session_state.user_info['name']}!")
-            if st.button("Đăng xuất", type="primary"):
+            st.write(f"Hello user, {st.session_state.user_info['name']}!")
+            if st.button("Logout", type="primary"):
                 st.session_state.user_info = None
                 st.session_state.messages = []
                 st.session_state.current_chat_id = None
@@ -208,7 +242,7 @@ def main():
                 st.rerun()
 
             # Hiển thị danh sách cuộc hội thoại
-            st.subheader("Danh sách cuộc hội thoại:")
+            st.subheader("History chat:")
             for chat in st.session_state.user_info["chats"]:
                 chat_id = chat["id"]
                 if st.button(f"{chat['title']}"):
@@ -227,7 +261,7 @@ def main():
 
     # Hiển thị chi tiết cuộc hội thoại và cho phép tương tác
     if st.session_state.user_info:
-        st.subheader(f"Cuộc hội thoại: {st.session_state.current_chat_id}")
+        st.subheader(f"Conservation: {st.session_state.current_chat_id}")
 
         # Hiển thị tất cả các tin nhắn
         for message in st.session_state.messages:
@@ -235,7 +269,7 @@ def main():
                 st.markdown(message["content"])
 
         # Xử lý input từ người dùng và tương tác với OpenAI API
-        if prompt := st.chat_input("Nhập tin nhắn của bạn"):
+        if prompt := st.chat_input("Input text here"):
             # Lưu tin nhắn mới vào messages
             user_message = {
                 "role": "user",
@@ -260,32 +294,48 @@ def main():
                 for chunk in response_stream:
                     if chunk.choices[0].delta.content is not None:
                         full_response += chunk.choices[0].delta.content
-                        # with assistant_message_placeholder.container():
-                        #     st.chat_message("assistant").markdown(full_response)
+                        with assistant_message_placeholder.container():
+                            st.chat_message("assistant").markdown(full_response)
+                    time.sleep(0.05)
 
-                response = ""
-                if "Tôi không biết" in full_response or "I don't know" in full_response:
-                    print("UNKnown")
-                    # Lọc ra các tin nhắn có role là user
-                    user_messages = [message for message in st.session_state.messages if message["role"] == "user"][-1]
-
-                    result = get_info_from_rag(
-                        f"Hãy truy vấn thông tin {user_messages} (Please explain information and always put all url in result)"
-                    )
-                    response = result['data']
                 # Thêm tin nhắn từ assistant vào danh sách
-                else:
-                    print("Known")
-                    response = full_response 
-
                 assistant_message = {
                     "role": "assistant",
-                    "content": response,
+                    "content": full_response,
                     "avatar": None,
                 }
                 st.session_state.messages.append(assistant_message)
-                with assistant_message_placeholder.container():
-                    st.chat_message("assistant").markdown(response)
+
+            user_last_reponse = [
+                msg for msg in st.session_state.messages if msg["role"] == "user"
+            ][-1]
+
+            assistant_last_reponse = [
+                msg
+                for msg in st.session_state.messages
+                if msg["role"] == "assistant"
+            ][-1]
+
+            if (
+                "I'm searching for more information please wait" in full_response
+                or "I'm searching for more information, please wait" in full_response
+            ):
+                with st.spinner("Checking..."):
+                    rag_info = get_info_from_rag(user_last_reponse["content"])
+                    rag_response = rag_info["data"]
+
+                    full_rag = ""
+                    if rag_response:
+                        final_response = f"\n\n{rag_response}"
+                        full_rag = ""
+                        assistant_last_reponse["content"] = final_response
+                        for char in final_response:
+                            full_rag += char
+                            with assistant_message_placeholder.container():
+                                st.chat_message("assistant").markdown(full_rag)
+                            time.sleep(0.01)
+            else:
+                pass
 
             # Cập nhật nội dung cuộc hội thoại lên server
             if st.session_state.current_chat_id:
