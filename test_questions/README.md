@@ -11,7 +11,7 @@ test-questions/
 ├─ news_source/
 ├─ questions/
 ├─ create_test.ipynb
-├─ links.json
+├─ links.txt
 ├─ news.json
 ├─ README.md
 ```
@@ -19,7 +19,7 @@ test-questions/
 - `news_source/`: Contains the source documents in JSON format. Each document was used to create corresponding question-answer pairs (e.g., `news_1.json` was used to create `questions_1.json`).
 - `questions/`: Contains the question-answer pairs in JSON format. The `final_questions.json` file contains 200 question-answer pairs selected from the first 200 questions from the combined question-answer pairs.
 - `create_test.ipynb`: Jupyter notebook used to create question-answer pairs.
-- `links.json`: Contains the links to the news articles used to create the question-answer pairs.
+- `links.txt`: Contains the links to the news articles in the `final_question.json`.
 - `news.json`: is used by the `create_test.ipynb` notebook as the input to create question-answer pairs.
 
 ## How the question-answer pairs were created
