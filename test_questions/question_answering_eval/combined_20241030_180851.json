@@ -1,0 +1,602 @@
+[
+  {
+    "context": "On Wednesday, the Federal Reserve cut interest rates for the first time since the early days of the COVID-19 pandemic.",
+    "question": "When did the Federal Reserve cut interest rates for the first time since the COVID-19 pandemic?",
+    "reference_answer": "On Wednesday, September 20, 2024.",
+    "bot_answer": "Wednesday, September 20, 2024."
+  },
+  {
+    "context": "The standard 30-year fixed-rate mortgage averaged 6.09% in the week ended September 19.",
+    "question": "What was the average rate of the standard 30-year fixed-rate mortgage as of September 19, 2024?",
+    "reference_answer": "6.09%.",
+    "bot_answer": "6.09%"
+  },
+  {
+    "context": "Some experts believe falling rates could entice more homeowners to put their homes up for sale.",
+    "question": "What do some experts believe falling interest rates could entice homeowners to do?",
+    "reference_answer": "To put their homes up for sale.",
+    "bot_answer": "Some experts believe falling rates could entice homeowners to put homes up for sale."
+  },
+  {
+    "context": "Brazil announced a reduction of the total amount of its spending freeze to 13.3 billion reais ($2.4 billion) for this year.",
+    "question": "What is the new total amount of Brazil's spending freeze for this year?",
+    "reference_answer": "13.3 billion reais ($2.4 billion).",
+    "bot_answer": "$2.4 billion."
+  },
+  {
+    "context": "President Luiz Inacio Lula da Silva\u2019s government initially sought to balance the budget in 2024.",
+    "question": "What was President Lula's initial goal regarding the budget for 2024?",
+    "reference_answer": "To balance the budget.",
+    "bot_answer": "Eliminate fiscal deficit through new taxes and boost public spending."
+  },
+  {
+    "context": "Investors remain skeptical of Finance Minister Fernando Haddad\u2019s efforts to shore up public accounts.",
+    "question": "What is the sentiment of investors towards Finance Minister Fernando Haddad's efforts?",
+    "reference_answer": "Investors remain skeptical.",
+    "bot_answer": "Initially negative, but improved with fiscal plan, now seen positively by markets."
+  },
+  {
+    "context": "CEO Warren Buffett has lapped Wall Street's benchmark index, the S&P 500, many times over.",
+    "question": "How has Warren Buffett performed compared to the S&P 500?",
+    "reference_answer": "He has outperformed it many times over.",
+    "bot_answer": "Buffett outperformed S&P 500 with 20.1% vs. 10.5% annual return since 1965."
+  },
+  {
+    "context": "Warren Buffett has overseen an aggregate return in his company's Class A shares of more than 5,400,000%.",
+    "question": "What is the aggregate return of Warren Buffett's company's Class A shares?",
+    "reference_answer": "More than 5,400,000%.",
+    "bot_answer": "5,400,000% over the years."
+  },
+  {
+    "context": "Buffett's 13Fs for the last seven quarters show that he and his top investment aides have been unabashed sellers.",
+    "question": "What has been Buffett's investment activity in the last seven quarters according to his 13Fs?",
+    "reference_answer": "He and his team have been unabashed sellers.",
+    "bot_answer": "Warren Buffett's 13F filings show net stock sales totaling close to $132 billion."
+  },
+  {
+    "context": "Elon Musk-owned social media platform X has named a legal representative in Brazil.",
+    "question": "What did Elon Musk's social media platform X do in Brazil?",
+    "reference_answer": "Named a legal representative.",
+    "bot_answer": "Named a legal representative in Brazil to address demands from the top court."
+  },
+  {
+    "context": "In late August, Brazil's top court ordered mobile and internet service providers to block X in the nation.",
+    "question": "What did Brazil's top court order in late August regarding the platform X?",
+    "reference_answer": "To block the platform in the nation.",
+    "bot_answer": "Brazil's top court ordered mobile and internet providers to block X."
+  },
+  {
+    "context": "The shutdown followed a months-long dispute between Musk and Brazilian Justice Alexandre de Moraes.",
+    "question": "What caused the shutdown of platform X in Brazil?",
+    "reference_answer": "A months-long dispute between Musk and Brazilian Justice Alexandre de Moraes.",
+    "bot_answer": "X shut down in Brazil due to not naming a new legal representative."
+  },
+  {
+    "context": "Sumitomo Mitsui Banking Corp. hired Juan Toro as managing director and chief executive officer for its Mexican non-bank financial company.",
+    "question": "Who was hired as CEO of Sumitomo's Mexican non-bank lender?",
+    "reference_answer": "Juan Toro.",
+    "bot_answer": "Juan Toro."
+  },
+  {
+    "context": "Toro will partner with managing director and country head Alfredo Santillan.",
+    "question": "Who will Juan Toro partner with in his new role at Sumitomo?",
+    "reference_answer": "Alfredo Santillan.",
+    "bot_answer": "Alfredo Santillan."
+  },
+  {
+    "context": "Sumitomo launched its Mexican sofom to focus on corporate and project finance following the expansion of Japanese car manufacturers in Latin America.",
+    "question": "What was the purpose of launching Sumitomo's Mexican sofom?",
+    "reference_answer": "To focus on corporate and project finance.",
+    "bot_answer": "To provide tailored financial services and bridge the gap in banking."
+  },
+  {
+    "context": "Sri Lanka\u2019s voters head to the polls Saturday to elect a president two years after an economic meltdown.",
+    "question": "What event is taking place on Saturday in Sri Lanka?",
+    "reference_answer": "Voters are electing a president.",
+    "bot_answer": "A presidential election is taking place in Sri Lanka on Saturday."
+  },
+  {
+    "context": "The election has been a tight race between three leading candidates: incumbent President Ranil Wickremesinghe, opposition leader Sajith Premadasa, and Anura Kumara Dissanayake.",
+    "question": "Who are the three leading candidates in the Sri Lankan presidential election?",
+    "reference_answer": "Ranil Wickremesinghe, Sajith Premadasa, and Anura Kumara Dissanayake.",
+    "bot_answer": "Ranil Wickremesinghe, Anura Kumara Dissanayake, and Sajith Premadasa."
+  },
+  {
+    "context": "Voters must choose a president who can steer the economy through a fragile recovery and finalize a debt restructuring deal.",
+    "question": "What must voters consider when choosing a president in Sri Lanka's election?",
+    "reference_answer": "Who can steer the economy through a fragile recovery and finalize a debt restructuring deal.",
+    "bot_answer": "Voters should evaluate candidates' economic recovery plans, anti-corruption measures, and leadership qualities."
+  },
+  {
+    "context": "Lawyers for Ricardo Salinas Pliego unveiled new details of a loan agreement they allege was part of a scam.",
+    "question": "What did lawyers for Ricardo Salinas Pliego unveil details about?",
+    "reference_answer": "A loan agreement they allege was part of a scam.",
+    "bot_answer": "Ricardo Salinas Pliego's lawyers unveiled details of a $110 million loan scam."
+  },
+  {
+    "context": "Salinas\u2019 lawyers allege that representatives for the lender used fake names and gave a false impression.",
+    "question": "What did Salinas' lawyers allege about the representatives from the lender?",
+    "reference_answer": "They used fake names and gave a false impression.",
+    "bot_answer": "Salinas' lawyers alleged that lender representatives used fake names and misleading practices."
+  },
+  {
+    "context": "Salinas\u2019 lawyers are asking the court to ignore a request by Astor to lift the order freezing any remaining shares held.",
+    "question": "What are Salinas' lawyers asking the court regarding Astor's request?",
+    "reference_answer": "To ignore the request to lift the order freezing any remaining shares.",
+    "bot_answer": "Grupo Salinas' legal team sued Astor Asset Management 3 Ltd for fraud."
+  },
+  {
+    "context": "Sri Lankans began voting Saturday in a presidential election to recover from its worst economic crisis.",
+    "question": "What is the purpose of the presidential election Sri Lankans are voting in?",
+    "reference_answer": "To recover from its worst economic crisis.",
+    "bot_answer": "To decide the direction of recovery from Sri Lanka's worst economic crisis."
+  },
+  {
+    "context": "The election features a record 38 candidates, but is largely a three-way race.",
+    "question": "How many candidates are featured in the Sri Lankan presidential election?",
+    "reference_answer": "38 candidates.",
+    "bot_answer": "39 candidates participated in the most recent Sri Lankan presidential election."
+  },
+  {
+    "context": "Observers suggest the election may go to a run-off for the first time since the system was introduced in 1982.",
+    "question": "What do observers suggest may happen in the Sri Lankan presidential election?",
+    "reference_answer": "It may go to a run-off.",
+    "bot_answer": "Observers suggest no single candidate may secure 50% of votes initially."
+  },
+  {
+    "context": "Intel Corp. shares gained nearly 8% after the Wall Street Journal reported that Qualcomm approached the company about a takeover.",
+    "question": "What happened to Intel Corp. shares in response to the Qualcomm takeover news?",
+    "reference_answer": "They gained nearly 8%.",
+    "bot_answer": "Intel Corp. stock prices surged over 7% after Qualcomm's takeover news."
+  },
+  {
+    "context": "Representatives for Intel and Qualcomm declined to comment on the discussions.",
+    "question": "What was the response from representatives for Intel and Qualcomm regarding the takeover discussions?",
+    "reference_answer": "They declined to comment.",
+    "bot_answer": "Qualcomm approached Intel for a potential takeover deal, Intel stock rose."
+  },
+  {
+    "context": "The discussions occurred in recent days, according to unnamed people familiar with the situation.",
+    "question": "According to reports, when did Qualcomm approach Intel about a potential takeover?",
+    "reference_answer": "In recent days.",
+    "bot_answer": "In recent days, Qualcomm reportedly approached Intel regarding a potential acquisition."
+  },
+  {
+    "context": "Sri Lanka begins voting in a presidential election that will decide the country's recovery direction.",
+    "question": "What is the main goal of the presidential election in Sri Lanka?",
+    "reference_answer": "To decide the direction of recovery from its economic crisis.",
+    "bot_answer": "The main goal is to decide the direction of recovery from an economic crisis."
+  },
+  {
+    "context": "The election is contested among incumbent President Ranil Wickremesinghe, opposition leader Sajith Premadasa, and Anura Kumara Dissanayake.",
+    "question": "Who are the main candidates in the Sri Lankan presidential election?",
+    "reference_answer": "Ranil Wickremesinghe, Sajith Premadasa, and Anura Kumara Dissanayake.",
+    "bot_answer": "Ranil Wickremesinghe, Anura Kumara Dissanayake, and Sajith Premadasa."
+  },
+  {
+    "context": "Polls close at 4 p.m. local time and counting begins immediately.",
+    "question": "What time do the polls close in the Sri Lankan presidential election?",
+    "reference_answer": "At 4 p.m. local time.",
+    "bot_answer": "Polling stations close at 4:00 p.m. in the Sri Lankan presidential election."
+  },
+  {
+    "context": "Mortgage rates fell to the lowest level in two years a day after the Federal Reserve cut its benchmark interest rate.",
+    "question": "What happened to mortgage rates after the Federal Reserve cut its benchmark interest rate?",
+    "reference_answer": "They fell to the lowest level in two years.",
+    "bot_answer": "Mortgage rates fell after the Federal Reserve cut its benchmark interest rate."
+  },
+  {
+    "context": "The average rate on the 15-year mortgage was 5.15%, down from 5.27% last week.",
+    "question": "What was the average rate on the 15-year mortgage this week?",
+    "reference_answer": "5.15%.",
+    "bot_answer": "6.10%"
+  },
+  {
+    "context": "Sam Khater, chief economist at Freddie Mac, stated that the cut impacted the housing market.",
+    "question": "Who is Sam Khater and what did he say about the rate cut's impact?",
+    "reference_answer": "Sam Khater is the chief economist at Freddie Mac, and he stated that the cut will impact the housing market.",
+    "bot_answer": "Sam Khater said the rate cut will impact the housing market. Rates are expected to fall further, sparking more housing activity. Buyers will have increased purchasing power by nearly $12,000 from a year ago."
+  },
+  {
+    "context": "US stocks closed mixed on Friday as rate-cut euphoria faded, but the Dow Jones Industrial Average managed to stay above the 42,000 level again.",
+    "question": "How did US stocks perform on Friday after the rate cut?",
+    "reference_answer": "They closed mixed.",
+    "bot_answer": "US stocks closed mixed on Friday, Dow hit record high, S&P down."
+  },
+  {
+    "context": "FedEx reported a miss on earnings, causing its shares to slump.",
+    "question": "What happened to FedEx's shares after they reported their earnings?",
+    "reference_answer": "Their shares slumped.",
+    "bot_answer": "FedEx's share price surged 10% and is now up nearly 15%."
+  },
+  {
+    "context": "Traders are pricing in deeper cuts this year than policymakers' dot plot projects.",
+    "question": "What are traders expecting regarding interest rate cuts this year?",
+    "reference_answer": "They are pricing in deeper cuts than policymakers' projections.",
+    "bot_answer": "Traders expect more interest rate cuts this year, with a 100% chance."
+  },
+  {
+    "context": "A Johnson & Johnson subsidiary filed for bankruptcy for a third time to advance a settlement.",
+    "question": "Why did a Johnson & Johnson subsidiary file for bankruptcy?",
+    "reference_answer": "To advance an approximately $8 billion proposed settlement.",
+    "bot_answer": "To advance a $10 billion talc settlement and end cancer lawsuits."
+  },
+  {
+    "context": "The settlement aims to address tens of thousands of lawsuits alleging that the company's talc products caused cancer.",
+    "question": "What do the lawsuits against Johnson & Johnson's subsidiary allege?",
+    "reference_answer": "That the company's talc products caused cancer.",
+    "bot_answer": "Lawsuits allege J&J's talc products caused cancer due to asbestos contamination."
+  },
+  {
+    "context": "This filing for bankruptcy marks the third time for the Johnson & Johnson subsidiary.",
+    "question": "How many times has the Johnson & Johnson subsidiary filed for bankruptcy?",
+    "reference_answer": "Three times.",
+    "bot_answer": "Three times."
+  },
+  {
+    "context": "The U.S. Postal Service said on Friday it will not hike stamp prices in January.",
+    "question": "What did the U.S. Postal Service announce about stamp prices for January 2025?",
+    "reference_answer": "They will not hike stamp prices.",
+    "bot_answer": "The U.S. Postal Service will not increase stamp prices in January 2025."
+  },
+  {
+    "context": "Stamp prices are up 36% since early 2019 when they were 50 cents.",
+    "question": "How much have stamp prices increased since early 2019?",
+    "reference_answer": "36%.",
+    "bot_answer": "Stamp prices have increased by 36% since early 2019."
+  },
+  {
+    "context": "Postmaster General Louis DeJoy stated that USPS strategies are working and projected inflation is declining.",
+    "question": "What did Postmaster General Louis DeJoy say regarding USPS strategies?",
+    "reference_answer": "He stated that the strategies are working and projected inflation is declining.",
+    "bot_answer": "DeJoy discussed the Delivering for America plan, focusing on USPS improvements."
+  },
+  {
+    "context": "Investors are looking for safe dividend stocks amid geopolitical turmoil and inflation.",
+    "question": "Why are investors seeking safe dividend stocks?",
+    "reference_answer": "Due to geopolitical turmoil, inflation, and unpredictable interest rates.",
+    "bot_answer": "Investors are attracted to dividend stocks with low risk for solid returns."
+  },
+  {
+    "context": "Altria's forward yield is 7.7%, continuing to pay dividends despite the tobacco industry's challenges.",
+    "question": "What is Altria's forward dividend yield?",
+    "reference_answer": "7.7%.",
+    "bot_answer": "8.12%"
+  },
+  {
+    "context": "Realty Income's forward dividend yield stands at 5%, known for consistently raising dividends since 1969.",
+    "question": "What is Realty Income's forward dividend yield and its track record?",
+    "reference_answer": "5%, with a history of raising dividends since 1969.",
+    "bot_answer": "The current forward dividend yield of Realty Income is 5.07%. Historically, it has increased its dividend for 32 consecutive years."
+  },
+  {
+    "context": "Trump Media stock plummeted Friday after company insiders could sell their shares.",
+    "question": "What happened to Trump Media stock when insiders were allowed to sell their shares?",
+    "reference_answer": "It plummeted.",
+    "bot_answer": "Trump Media's stock price plummeted when insiders were allowed to sell shares."
+  },
+  {
+    "context": "Shares for the owner of Trump\u2019s Truth Social fell as much as 8% to $13.50 on Friday morning.",
+    "question": "How much did Trump Media shares fall on Friday morning?",
+    "reference_answer": "As much as 8% to $13.50.",
+    "bot_answer": "8% drop."
+  },
+  {
+    "context": "The stock's performance is connected to Trump's political fortune and financial results.",
+    "question": "What factors influence the stock price of Trump Media?",
+    "reference_answer": "Trump's political fortune and the company's financial results.",
+    "bot_answer": "Trump Media stock price is influenced by Trump's political fortune and financial performance."
+  },
+  {
+    "context": "A millennial couple grew their net worth to over $700,000 from $150,000 in 2018.",
+    "question": "What was the net worth of the millennial couple in 2018?",
+    "reference_answer": "$150,000.",
+    "bot_answer": "$150,000."
+  },
+  {
+    "context": "Living abroad and only spending one income helped boost their finances.",
+    "question": "What strategy helped the millennial couple boost their finances?",
+    "reference_answer": "Living abroad and only spending one income.",
+    "bot_answer": "Living abroad and living on one income of $50k boosted finances."
+  },
+  {
+    "context": "Davis aims for financial independence within the next five years while continuing to work.",
+    "question": "What is Brian Davis's goal regarding financial independence?",
+    "reference_answer": "To reach financial independence within the next five years.",
+    "bot_answer": "Brian Davis's goal is to reach financial independence within the next five years."
+  },
+  {
+    "context": "A Three Mile Island nuclear reactor is set to come back online under a new deal between Microsoft and Constellation Energy.",
+    "question": "What is set to happen at the Three Mile Island nuclear reactor?",
+    "reference_answer": "It is set to come back online.",
+    "bot_answer": "The Three Mile Island nuclear reactor is set to restart in 2028."
+  },
+  {
+    "context": "The deal aims to secure emissions-free power for Microsoft's increasingly power-hungry data centres.",
+    "question": "What is the aim of the new deal between Microsoft and Constellation?",
+    "reference_answer": "To secure emissions-free power for data centres.",
+    "bot_answer": "The aim is to provide emissions-free power to Microsoft's data centers."
+  },
+  {
+    "context": "The restart requires U.S. Nuclear Regulatory Commission approval and environmental review.",
+    "question": "What approvals are needed for the restart of the reactor?",
+    "reference_answer": "U.S. Nuclear Regulatory Commission approval and environmental review.",
+    "bot_answer": "NRC approval is required to restart a nuclear reactor for safety."
+  },
+  {
+    "context": "Sales of existing homes fell in August despite lower mortgage rates.",
+    "question": "What happened to the sales of existing homes in August?",
+    "reference_answer": "They fell.",
+    "bot_answer": "Existing home sales fell by 2.5% in August, reaching 3.86 million."
+  },
+  {
+    "context": "Existing home sales dropped 2.5% from July to August.",
+    "question": "By how much did existing home sales drop from July to August?",
+    "reference_answer": "2.5%.",
+    "bot_answer": "2.5%"
+  },
+  {
+    "context": "The median home price increased 3.1% from last August to $416,700.",
+    "question": "What was the median home price in August, and how much did it change from last year?",
+    "reference_answer": "The median home price was $416,700, an increase of 3.1% from last August.",
+    "bot_answer": "The median home price in August was $416,700, with a 3.1% increase."
+  },
+  {
+    "context": "Gold hovered near record highs supported by the Fed\u2019s recent rate cut and a weakening dollar.",
+    "question": "What is supporting gold's price near record highs?",
+    "reference_answer": "The Fed's recent rate cut and a weakening dollar.",
+    "bot_answer": "The Fed's rate cut and a weakening dollar support gold's price. Gold becomes more affordable to foreign buyers as the dollar weakens. Lower rates make gold attractive to investors."
+  },
+  {
+    "context": "Gold futures climbed to trade just above $2,600.",
+    "question": "What was the trading price of gold futures recently?",
+    "reference_answer": "Just above $2,600.",
+    "bot_answer": "The current trading price of gold futures is 2,760.4 USD."
+  },
+  {
+    "context": "Analysts predict a price target of $2,700 for gold by early 2025.",
+    "question": "What is the price target for gold predicted by analysts for early 2025?",
+    "reference_answer": "$2,700.",
+    "bot_answer": "Gold price target for early 2025 is $2,700 as predicted by analysts."
+  },
+  {
+    "context": "Snapchat is combining its Stories and Spotlight functions into one vertical video feed.",
+    "question": "What has Snapchat decided to do with its Stories and Spotlight functions?",
+    "reference_answer": "Combine them into one vertical video feed.",
+    "bot_answer": "Snapchat is combining Stories and Spotlight into one feed, similar to TikTok. The new layout and algorithm aim to personalize user experience. Snapchat is simplifying its app design to three tabs."
+  },
+  {
+    "context": "The new function on Snapchat is aimed at tapping into the trends set by TikTok.",
+    "question": "What trend is Snapchat trying to tap into with its new function?",
+    "reference_answer": "The trends set by TikTok.",
+    "bot_answer": "Snapchat is targeting TikTok's vertical video feed trend with its latest feature."
+  },
+  {
+    "context": "Snapchat has learned that incorporating popular user functions is vital to maintain market presence.",
+    "question": "Why does Snapchat think it is important to incorporate popular user functions?",
+    "reference_answer": "To maintain market presence.",
+    "bot_answer": "To avoid losing market share and stay competitive in the industry."
+  },
+  {
+    "context": "The average 30-year fixed mortgage rates fell again this week to 6.09%.",
+    "question": "What was the average 30-year fixed mortgage rate this week?",
+    "reference_answer": "6.09%.",
+    "bot_answer": "6.09%"
+  },
+  {
+    "context": "Mortgage applications for home purchases and refinancings jumped more than 14% from a week earlier.",
+    "question": "By how much did mortgage applications for home purchases and refinancings increase this week?",
+    "reference_answer": "More than 14%.",
+    "bot_answer": "The percentage increase in mortgage applications for home purchases and refinancings was 11.0%."
+  },
+  {
+    "context": "Lower mortgage rates could ease affordability constraints for homebuyers.",
+    "question": "What impact could lower mortgage rates have on homebuyers?",
+    "reference_answer": "They could ease affordability constraints.",
+    "bot_answer": "Lower mortgage rates increase purchasing power for homebuyers by $12,000."
+  },
+  {
+    "context": "Broadcom's stock has grown by 465% over the last five years.",
+    "question": "How much has Broadcom's stock grown over the last five years?",
+    "reference_answer": "465%",
+    "bot_answer": "500%"
+  },
+  {
+    "context": "Broadcom is currently valued at $761 billion.",
+    "question": "What is Broadcom's current market valuation?",
+    "reference_answer": "$761 billion",
+    "bot_answer": "$837.80 billion as of October 2024."
+  },
+  {
+    "context": "Broadcom's stock needs to gain 31.4% to join the $1 trillion club.",
+    "question": "What percentage does Broadcom's stock need to gain to join the $1 trillion club?",
+    "reference_answer": "31.4%",
+    "bot_answer": "30%"
+  },
+  {
+    "context": "The average rate on the 30-year fixed-rate mortgage fell to 6.09%.",
+    "question": "What is the current average rate for a 30-year fixed-rate mortgage?",
+    "reference_answer": "6.09%",
+    "bot_answer": "6.32% is the current average rate for a 30-year fixed-rate mortgage."
+  },
+  {
+    "context": "The Fed cut its benchmark overnight interest rate by 50 basis points.",
+    "question": "How much did the Fed cut the benchmark overnight interest rate?",
+    "reference_answer": "50 basis points",
+    "bot_answer": "The Fed cut the benchmark overnight interest rate by 50 basis points."
+  },
+  {
+    "context": "The average rate on the 15-year fixed-rate mortgage fell to 5.15%.",
+    "question": "What is the current average rate for a 15-year fixed-rate mortgage?",
+    "reference_answer": "5.15%",
+    "bot_answer": "The current average interest rate for a 15-year fixed-rate mortgage is 6.37%."
+  },
+  {
+    "context": "Paylocity reported revenues of $357.3 million, up 15.8% year on year.",
+    "question": "What were Paylocity's reported revenues for Q2?",
+    "reference_answer": "$357.3 million",
+    "bot_answer": "$326.36 million."
+  },
+  {
+    "context": "UiPath reported revenues of $316.3 million, up 10.1% year on year.",
+    "question": "What was UiPath's year-on-year revenue growth percentage?",
+    "reference_answer": "10.1%",
+    "bot_answer": "20.41%"
+  },
+  {
+    "context": "The 6 HR software stocks tracked reported a slower Q2.",
+    "question": "How did the 6 HR software stocks tracked perform in Q2?",
+    "reference_answer": "They reported a slower Q2.",
+    "bot_answer": "Revenues beat estimates by 0.7%, next quarter guidance was 2.1% below."
+  },
+  {
+    "context": "Sky will move forward with a plan to offboard wrapped bitcoin as collateral.",
+    "question": "What is the plan that Sky has ratified regarding wrapped bitcoin?",
+    "reference_answer": "To offboard wrapped bitcoin as collateral.",
+    "bot_answer": "Sky has ratified a plan to offload wrapped Bitcoin collateral from the platform."
+  },
+  {
+    "context": "The matter has been closely followed in crypto markets because Sky has $200 million of loans collateralized by the token.",
+    "question": "Why has the plan to offboard wrapped bitcoin been closely followed in crypto markets?",
+    "reference_answer": "Because Sky has $200 million of loans collateralized by the token.",
+    "bot_answer": "Sky platform has $200M loans collateralized by WBTC, a major cryptocurrency. Offboarding affects DeFi."
+  },
+  {
+    "context": "The Sky vote garnered overwhelming support from the project's community.",
+    "question": "What was the outcome of the Sky vote regarding the offboarding of wrapped bitcoin?",
+    "reference_answer": "The vote garnered overwhelming support from the project's community.",
+    "bot_answer": "The Sky community voted to discontinue the use of wrapped bitcoin."
+  },
+  {
+    "context": "Tyson Foods reported revenues of $13.35 billion, up 1.6% year on year.",
+    "question": "What were Tyson Foods' revenues for the latest quarter?",
+    "reference_answer": "$13.35 billion",
+    "bot_answer": "$13.353 billion for the quarter ending June 30, 2024."
+  },
+  {
+    "context": "The perishable food stocks tracked reported a strong Q2.",
+    "question": "What was the performance of the perishable food stocks in Q2?",
+    "reference_answer": "They reported a strong Q2.",
+    "bot_answer": "Perishable food stocks performed well, with share prices up 10.7%."
+  },
+  {
+    "context": "Inflation progressed towards the Fed's 2% goal recently.",
+    "question": "What has inflation progressed towards recently?",
+    "reference_answer": "The Fed's 2% goal.",
+    "bot_answer": "Inflation has cooled recently, leading to potential interest rate cuts."
+  },
+  {
+    "context": "Summers suggested that inflation will probably prevent the Fed from lowering interest rates as much as expected.",
+    "question": "What did Summers say about the Fed's ability to lower interest rates?",
+    "reference_answer": "Inflation will probably prevent the Fed from lowering interest rates as much as expected.",
+    "bot_answer": "Summers believed the Fed lacked room to cut rates as desired."
+  },
+  {
+    "context": "Fed Chair Jerome Powell indicated that the neutral rate is probably significantly higher than it was in the pre-pandemic years.",
+    "question": "What did Jerome Powell indicate about the neutral rate?",
+    "reference_answer": "It is probably significantly higher than it was in the pre-pandemic years.",
+    "bot_answer": "Jerome Powell suggested the neutral interest rate has moved up."
+  },
+  {
+    "context": "Summers suggested that higher fiscal borrowing indicates a higher neutral rate, of at least 4%.",
+    "question": "What neutral rate does Summers suggest based on higher fiscal borrowing?",
+    "reference_answer": "At least 4%.",
+    "bot_answer": "Neutral interest rate would be significantly negative without fiscal policies."
+  },
+  {
+    "context": "FedEx fell short of market revenue expectations in Q3 with sales flat year on year.",
+    "question": "How did FedEx perform in terms of revenue expectations in Q3?",
+    "reference_answer": "It fell short of market revenue expectations.",
+    "bot_answer": "FedEx did not meet revenue expectations in Q3, reporting -2% growth."
+  },
+  {
+    "context": "FedEx's Q3 sales were flat year on year at $21.58 billion.",
+    "question": "What were FedEx's sales for Q3?",
+    "reference_answer": "$21.58 billion",
+    "bot_answer": "$771 million, or $3.05 per share."
+  },
+  {
+    "context": "FedEx's non-GAAP profit was $3.60 per share.",
+    "question": "What was FedEx's non-GAAP profit per share?",
+    "reference_answer": "$3.60",
+    "bot_answer": "$6.87"
+  },
+  {
+    "context": "The 10-year yield and 30-year mortgage rates have been in a slow dance since 1971.",
+    "question": "How long have the 10-year yield and 30-year mortgage rates been trending together?",
+    "reference_answer": "Since 1971.",
+    "bot_answer": "Strong correlation of about 0.85 over the last decade."
+  },
+  {
+    "context": "The bond market is moving quickly compared to the Fed.",
+    "question": "How does the bond market operate in relation to the Fed?",
+    "reference_answer": "The bond market moves quickly compared to the Fed.",
+    "bot_answer": "The Federal Reserve influences the bond market through interest rate changes."
+  },
+  {
+    "context": "To lower mortgage rates, three conditions must be met.",
+    "question": "What are the three conditions needed for mortgage rates to lower?",
+    "reference_answer": "1. Mortgage spreads getting better, 2. Economic and labor data getting softer, 3. The Fed becoming more dovish.",
+    "bot_answer": "Federal Reserve Bank's monetary policy, economic indicators, and government borrowing levels."
+  },
+  {
+    "context": "China unexpectedly left benchmark lending rates unchanged.",
+    "question": "What decision did China make regarding benchmark lending rates?",
+    "reference_answer": "They left them unchanged.",
+    "bot_answer": "China recently cut its market-based benchmark lending rates by 25 basis points."
+  },
+  {
+    "context": "The one-year loan prime rate was kept at 3.35%.",
+    "question": "What is the current one-year loan prime rate in China?",
+    "reference_answer": "3.35%",
+    "bot_answer": "3.1%"
+  },
+  {
+    "context": "Market watchers expect further stimulus measures to be rolled out.",
+    "question": "What do market watchers expect from Chinese authorities in response to the sluggish economy?",
+    "reference_answer": "They expect further stimulus measures.",
+    "bot_answer": "Market watchers expect Chinese authorities to deliver more fiscal support for the economy."
+  },
+  {
+    "context": "Deus X Capital launched Solstice Labs, a decentralized finance business.",
+    "question": "What new business did Deus X Capital launch?",
+    "reference_answer": "Solstice Labs.",
+    "bot_answer": "Solstice Labs, a decentralized finance business bridging traditional and crypto markets."
+  },
+  {
+    "context": "The first project of Solstice Labs will offer enhanced yield opportunities.",
+    "question": "What will be the focus of Solstice Labs' first project?",
+    "reference_answer": "Enhanced yield opportunities.",
+    "bot_answer": "Enhanced yield opportunities for users through a new protocol in 2025."
+  },
+  {
+    "context": "Solstice Labs aims to deliver stable and consistent yields for investors.",
+    "question": "What goal does Solstice Labs have regarding yields for investors?",
+    "reference_answer": "To deliver stable and consistent yields.",
+    "bot_answer": "Stable and consistent returns for all investors in early 2025."
+  },
+  {
+    "context": "Hedge fund manager Paulson said he would pull his money off the market if Harris wins.",
+    "question": "What did hedge fund manager Paulson say he would do if Kamala Harris wins?",
+    "reference_answer": "Pull his money off the market.",
+    "bot_answer": "Pull his money from the market."
+  },
+  {
+    "context": "Elon Musk referenced Warren Buffett's actions regarding cash holdings.",
+    "question": "Who did Elon Musk refer to in context of positioning for an upcoming election?",
+    "reference_answer": "Warren Buffett.",
+    "bot_answer": "Mayra Flores."
+  },
+  {
+    "context": "Musk believes Buffett is getting prepared for the possibility of a Harris win.",
+    "question": "What does Musk think Buffett is preparing for?",
+    "reference_answer": "A potential Kamala Harris win.",
+    "bot_answer": "Elon Musk believes Warren Buffett is already preparing for a specific outcome."
+  },
+  {
+    "context": "Mark Cuban expressed interest in acquiring X, formerly known as Twitter.",
+    "question": "What did Mark Cuban express interest in purchasing?",
+    "reference_answer": "X, formerly known as Twitter.",
+    "bot_answer": "X (formerly Twitter) and Fox News."
+  }
+]
