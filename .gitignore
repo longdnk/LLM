@@ -1,3 +1,4 @@
 .streamlit/*
 .streamlit
 backup.txt
+*.pyc

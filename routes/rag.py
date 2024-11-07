@@ -13,7 +13,6 @@ from langchain.output_parsers import PydanticOutputParser
 from langchain.output_parsers.openai_tools import PydanticToolsParser
 from langchain.prompts import PromptTemplate
 from langchain.schema import Document
-from langchain_chroma import Chroma
 from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.messages import BaseMessage, FunctionMessage
 from langchain_core.output_parsers import StrOutputParser
@@ -32,144 +31,104 @@ from langgraph.graph import END, StateGraph
 os.environ["OPENAI_API_KEY"] = ""
 os.environ["TAVILY_API_KEY"] = ""
 
+
 class RequestItem(BaseModel):
     text: str
 
-
 rag_router = APIRouter(prefix="/rags", tags=["rags"])
 
-urls = [
-    "https://finance.yahoo.com/news/chinese-stocks-rebound-ministry-hints-013837670.html",
-    # "https://finance.yahoo.com/news/tsmc-third-quarter-profit-seen-000227274.html",
-    # "https://finance.yahoo.com/news/boeing-endless-doom-loop-gives-180000720.html",
-    # "https://finance.yahoo.com/news/asian-investors-wary-china-briefing-222159266.html",
-    # "https://finance.yahoo.com/news/how-trump-could-exert-new-controls-over-the-fed--even-without-firing-powell-130015225.html",
-    # "https://finance.yahoo.com/news/did-exxon-lie-about-recycling-california-widens-climate-fight-with-kind-of-new-legal-strategy-133006452.html",
-    # "https://finance.yahoo.com/news/european-carmakers-descend-paris-showcase-062006706.html",
-    # "https://finance.yahoo.com/news/the-bull-market-is-2-years-old-heres-where-wall-street-thinks-stocks-go-next-100050648.html",
-    # "https://finance.yahoo.com/news/retail-sales-big-banks-results-and-netflix-earnings-what-to-know-this-week-114506799.html",
-    # "https://finance.yahoo.com/news/tesla-stock-selloff-after-robotaxi-event-could-be-just-the-beginning-pros-warn-155630131.html",
-    # "https://finance.yahoo.com/news/does-warren-buffett-know-something-121500342.html",
-    # "https://finance.yahoo.com/m/13a394cc-c8b2-3eda-936d-f7ee95db4db6/is-the-stock-market-open.html",
-    # "https://finance.yahoo.com/news/oppenheimer-predicts-740-rally-2-100113020.html",
-    # "https://finance.yahoo.com/news/tsmc-third-quarter-profit-seen-000227274.html",
-    # "https://finance.yahoo.com/news/chinese-stocks-rebound-ministry-hints-013837670.html",
-    # "https://finance.yahoo.com/news/asian-investors-wary-china-briefing-222159266.html",
-    # "https://finance.yahoo.com/news/analyst-adjusts-amd-stock-price-231700331.html",
-    # "https://finance.yahoo.com/news/black-swan-author-really-afraid-172433830.html",
-    # "https://finance.yahoo.com/news/bitcoin-jumps-traders-weigh-china-055859218.html",
-    # "https://finance.yahoo.com/news/tesla-stock-selloff-after-robotaxi-event-could-be-just-the-beginning-pros-warn-155630131.html",
-    # "https://finance.yahoo.com/news/billionaire-bill-gates-81-48-220100456.html",
-    # "https://finance.yahoo.com/news/possible-stock-splits-2025-2-124000524.html",
-    # "https://www.yahoo.com/tech/columbus-day-trading-netflix-bank-090000300.html",
-    # "https://finance.yahoo.com/news/1-top-artificial-intelligence-ai-180000360.html",
-    # "https://finance.yahoo.com/news/donald-trump-kamala-harris-better-090600766.html",
-    # "https://finance.yahoo.com/news/retail-sales-big-banks-results-and-netflix-earnings-what-to-know-this-week-114506799.html",
-    # "https://finance.yahoo.com/news/analyst-forecast-palantirs-rally-makes-133700707.html",
-    # "https://finance.yahoo.com/m/0caeb92f-0a11-3ecd-aa75-9a1a0b2238dc/stock-market-holidays-2024-.html",
-    # "https://finance.yahoo.com/news/super-micro-computer-shares-surge-211100590.html",
-    # "https://finance.yahoo.com/m/69a2fb68-524a-3d7e-854d-754de3137fa9/dow-jones-futures-chinese.html",
-    # "https://finance.yahoo.com/news/1-stock-buy-1-stock-130500437.html",
-    # "https://finance.yahoo.com/news/legendary-investor-unveils-updated-stock-000300093.html",
-    # "https://finance.yahoo.com/news/stock-market-today-asian-shares-050730590.html",
-    # "https://finance.yahoo.com/news/p-500s-bull-run-looks-115550131.html",
-    # "https://finance.yahoo.com/m/82702796-8574-337c-b563-34e16dbf111e/goldman-sachs-netflix-.html",
-    # "https://finance.yahoo.com/news/expect-markets-week-100000721.html",
-    # "https://finance.yahoo.com/news/where-palantir-stock-1-181500767.html",
-    # "https://finance.yahoo.com/news/morning-bid-china-stimulus-gets-043332660.html",
-    # "https://finance.yahoo.com/news/whats-best-magnificent-seven-stock-084900888.html",
-    # "https://finance.yahoo.com/news/2-best-artificial-intelligence-stocks-073500247.html",
-    # "https://finance.yahoo.com/news/oil-prices-fall-more-1-223856975.html",
-    # "https://finance.yahoo.com/m/3702fa24-061b-3e29-8a73-cd0f3a79e218/stocks-poised-for-lower-open.html",
-    # "https://finance.yahoo.com/news/dollar-extends-gains-while-investors-010931316.html",
-    # "https://finance.yahoo.com/news/jamie-dimon-warns-global-risks-190516735.html",
-    # "https://finance.yahoo.com/news/oil-could-fall-to-25-per-barrel-by-2050-if-net-zero-emissions-goals-met-iea-says-183256015.html",
-    # "https://finance.yahoo.com/news/commentary-trumps-tariff-threats-are-derailing-his-campaign-160625515.html",
-    # "https://finance.yahoo.com/news/us-agency-adopts-rule-easier-170016023.html",
-    # "https://finance.yahoo.com/news/live/stock-market-today-dow-jumps-over-300-points-to-hit-fresh-record-lead-stock-rebound-200534422.html",
-    # "https://finance.yahoo.com/news/nvidia-is-set-to-dominate-another-big-tech-earnings-season-194525244.html",
-    # "https://finance.yahoo.com/news/oil-company-phillips-66-says-235117166.html",
-    # "https://finance.yahoo.com/news/stock-market-flashed-sell-signal-234118409.html",
-    # "https://finance.yahoo.com/news/elon-musk-goes-big-in-2024-campaign-with-75-million-for-trump-and-other-republicans-132345924.html",
-    # "https://finance.yahoo.com/news/robinhood-reveals-new-look-will-start-offering-futures-and-index-options-trading-223116254.html",
-    # "https://finance.yahoo.com/news/asml-earnings-disappointment-isnt-a-disaster-for-the-ai-chip-sector-211412268.html",
-    # "https://finance.yahoo.com/news/asian-stocks-advance-amid-us-222029442.html",
-    # "https://finance.yahoo.com/news/hyundai-record-indian-ipo-draws-042530048.html",
-    # "https://finance.yahoo.com/news/china-boost-financing-approved-housing-040829155.html",
-    # "https://finance.yahoo.com/news/germanys-vay-gets-37-million-040733734.html",
-    # "https://finance.yahoo.com/news/argentine-province-creative-solution-president-040536876.html",
-    # "https://finance.yahoo.com/news/italy-winemakers-face-yet-another-040017452.html",
-    # "https://finance.yahoo.com/news/ecb-step-pace-back-back-040000538.html",
-    # "https://finance.yahoo.com/news/turkey-hold-interest-rates-steady-040000050.html",
-    # "https://finance.yahoo.com/personal-finance/where-to-keep-emergency-fund-222513004.html",
-    # "https://finance.yahoo.com/personal-finance/flood-insurance-cost-155459950.html",
-    # "https://finance.yahoo.com/personal-finance/how-much-is-homeowners-insurance-201445503.html",
-    # "https://finance.yahoo.com/personal-finance/cash-to-close-180256531.html",
-    # "https://finance.yahoo.com/personal-finance/va-construction-loan-195032285.html",
-    # "https://finance.yahoo.com/personal-finance/when-will-mortgage-rates-go-down-164144910.html",
-    # "https://finance.yahoo.com/personal-finance/zelle-scams-193209132.html",
-    # "https://finance.yahoo.com/personal-finance/sent-money-wrong-person-cash-app-zelle-venmo-210059447.html",
-    # "https://finance.yahoo.com/personal-finance/sneaky-tricks-credit-card-issuers-use-175600159.html",
-    # "https://finance.yahoo.com/personal-finance/save-on-travel-shoulder-season-230049463.html",
-    # "https://finance.yahoo.com/personal-finance/can-you-pause-credit-card-payments-183228901.html",
-    # "https://finance.yahoo.com/news/guess-percent-people-4-million-193048041.html",
-    # "https://finance.yahoo.com/news/warren-buffett-buying-shares-legal-085100537.html",
-    # "https://finance.yahoo.com/news/chinese-stocks-rise-eyes-housing-014731600.html",
-    # "https://finance.yahoo.com/news/china-life-says-profit-jump-105656982.html",
-    # "https://finance.yahoo.com/news/60-old-canadian-earning-9-180018507.html",
-    # "https://finance.yahoo.com/news/nvidias-biggest-problem-might-even-164207019.html",
-    # "https://finance.yahoo.com/news/asian-stocks-advance-amid-us-222029442.html",
-    # "https://finance.yahoo.com/m/224fc26a-0d0d-32d8-82aa-4250fccf039a/dow-jones-futures-taiwan.html",
-    # "https://finance.yahoo.com/news/rmds-start-soon-want-convert-123106570.html",
-    # "https://finance.yahoo.com/news/jim-cramer-says-earnings-season-000026465.html",
-    # "https://finance.yahoo.com/news/3-tenacious-stocks-could-millionaire-133700075.html",
-    # "https://finance.yahoo.com/news/chinese-stocks-extend-decline-peak-013258907.html",
-    # "https://finance.yahoo.com/news/stock-market-today-dow-jumps-040825975.html",
-    # "https://finance.yahoo.com/news/artificial-intelligence-ai-energy-consumption-220000409.html",
-    # "https://finance.yahoo.com/news/billionaire-steven-cohen-sold-87-090600030.html",
-    # "https://finance.yahoo.com/m/223df73d-6961-3694-a32a-fb10a7086788/blowout-growth-from-3-stocks.html",
-    # "https://finance.yahoo.com/news/chinese-stocks-attractive-investment-managers-192028893.html",
-    # "https://finance.yahoo.com/news/iwp-532m-inflows-212910889.html",
-    # "https://finance.yahoo.com/news/jpmorgan-kicks-off-post-earnings-125053312.html",
-    # "https://finance.yahoo.com/news/bond-markets-heaving-fed-rate-141700298.html",
-    # "https://finance.yahoo.com/news/asian-stocks-track-us-selloff-220638744.html",
-    # "https://finance.yahoo.com/news/nvidia-is-set-to-dominate-another-big-tech-earnings-season-194525244.html",
-    # "https://finance.yahoo.com/news/donald-trump-is-set-for-a-mcdonalds-stop-in-latest-2024-campaign-effort-to-claim-the-golden-arches-080055004.html",
-    # "https://finance.yahoo.com/news/samsung-electronics-estimates-274-jump-235615435.html",
-    # "https://finance.yahoo.com/news/oil-prices-extend-gains-as-markets-wait-for-israels-retaliation-against-iran-154717391.html",
-    # "https://finance.yahoo.com/news/firing-cylinders-mrc-global-nyse-081847099.html",
-    # "https://finance.yahoo.com/news/q2-earnings-highlights-wayfair-nyse-081916819.html",
-    # "https://finance.yahoo.com/news/analyst-reboots-reddit-stock-price-000300546.htm",
-    # "https://finance.yahoo.com/news/lockheed-martin-remains-apos-prime-163912207.html",
-    # "https://finance.yahoo.com/news/asian-traders-cautious-ahead-china-223430584.html",
-    # "https://finance.yahoo.com/news/ares-said-agree-acquisition-gcp-021839259.html",
-    # "https://finance.yahoo.com/news/middle-east-conflict-keeps-markets-004300395.html",
-    # "https://finance.yahoo.com/news/the-ai-stock-surge-signals-investors-will-be-patient-for-profit-morning-brief-100500699.html",
-    # "https://finance.yahoo.com/news/live/stock-market-today-nasdaq-futures-jump-as-tsmc-outlook-eases-ai-worries-105447024.html",
-    # "https://finance.yahoo.com/news/tsmc-profit-beats-estimates-during-054637777.html",
-    # "https://finance.yahoo.com/news/kamala-harris-has-a-new-campaign-trail-partner-mark-cuban-090033175.html",
-    # "https://finance.yahoo.com/news/gold-rallies-record-tight-us-064949081.html",
-    # "https://finance.yahoo.com/news/donald-trump-is-set-for-a-mcdonalds-stop-in-latest-2024-campaign-effort-to-claim-the-golden-arches-080055004.html",
-    # "https://finance.yahoo.com/news/the-ai-stock-surge-signals-investors-will-be-patient-for-profit-morning-brief-100500699.html",
-    # "https://finance.yahoo.com/news/nvidia-is-set-to-dominate-another-big-tech-earnings-season-194525244.html",
-]
+# urls = [
+#     "https://finance.yahoo.com/news/chinese-stocks-rebound-ministry-hints-013837670.html",
+#     "https://finance.yahoo.com/news/mortgage-rates-jump-most-since-160000104.html",
+#     "https://finance.yahoo.com/news/ibm-poised-apos-solid-apos-174213005.html",
+#     "https://www.example.com/news/fed-rate-cut",
+#     "https://finance.yahoo.com/news/why-pro-trader-tom-sosnoff-says-to-bet-on-yourself-instead-of-passive-index-funds-190057935.html",
+#     "https://finance.yahoo.com/news/northvolt-founder-next-big-green-040038431.html",
+#     "https://finance.yahoo.com/news/1-stock-split-stock-set-join-nvidia-apple-microsoft-amazon-alphabet-meta-1-trillion-club-19470000.html",
+#     "https://finance.yahoo.com/news/sri-lanka-begins-voting-presidential-013152309.html",
+#     "https://finance.yahoo.com/news/why-strong-earnings-and-cash-flow-are-key-to-navigating-value-traps-181838014.html",
+#     "https://finance.yahoo.com/news/tesla-robotaxi-event-analysts-weigh-in-on-what-to-expect-from-ceo-elon-musks-big-moment-164748104.html",
+#     "https://finance.yahoo.com/news/own-home-hope-buy-one-090020148.html",
+#     "https://finance.yahoo.com/news/fake-names-lured-billionaire-salinas-211738755.html",
+#     "https://finance.yahoo.com/news/us-30-year-fixed-rate-mortgage-falls-6-09-22103212.html",
+#     "https://finance.yahoo.com/news/q2-earnings-roundup-lamb-weston-nyse-lw-rest-shelf-stable-food-segment-00000000.html",
+#     "https://finance.yahoo.com/news/three-mile-island-nuclear-reactor-to-restart-under-microsoft-deal-154812499.html",
+#     "https://finance.yahoo.com/news/x-names-brazil-legal-representative-003638875.html",
+#     "https://www.example.com/news/broadcom-stock-split",
+#     "https://finance.yahoo.com/news/want-safe-dividend-income-2024-084800477.html",
+#     "https://finance.yahoo.com/news/j-j-subsidiary-files-bankruptcy-193903276.html",
+#     "https://finance.yahoo.com/news/billionaire-bond-king-bill-gross-005809707.html?guccounter=1&guce_referrer=aHR0cHM6Ly9maW5hbmNlLnlhaG9vLmNvbS9uZXdzLw&guce_referrer_sig=AQAAAEVfPVEASIT_EVG7Ar3pZP3EFIb7yCyfXZREkyo7-1b5dWIKzVBmgjFfwhaeKV7SIkNetwpNNPgFLPMpbl6g0kuXE7b5o0zS7FnvNfVKfAzP9AyUzqS8og85cBkWxxDWYZgvueIRl4OBSgE41R2jbhZsfZjOCCOPPu-qJObxPy9V",
+#     "https://finance.yahoo.com/news/espn-stephen-smith-picks-sports-000822252.html?guccounter=1&guce_referrer=aHR0cHM6Ly9maW5hbmNlLnlhaG9vLmNvbS9uZXdzLw&guce_referrer_sig=AQAAAEVfPVEASIT_EVG7Ar3pZP3EFIb7yCyfXZREkyo7-1b5dWIKzVBmgjFfwhaeKV7SIkNetwpNNPgFLPMpbl6g0kuXE7b5o0zS7FnvNfVKfAzP9AyUzqS8og85cBkWxxDWYZgvueIRl4OBSgE41R2jbhZsfZjOCCOPPu-qJObxPy9V",
+#     "https://finance.yahoo.com/news/us-mortgage-rates-fall-further-stoking-housing-optimism-22192212.html",
+#     "https://finance.yahoo.com/news/elon-musk-reacts-mark-cuban-says-23000000.html",
+#     "https://finance.yahoo.com/news/caused-by-crowdstrike-delta-ceo-cites-tech-disruption-as-earnings-miss-113034365.html",
+#     "https://finance.yahoo.com/news/crypto-investment-firm-deus-x-capital-unveils-defi-unit-23000000.html",
+#     "https://www.example.com/news/apple-iphone-16-launch",
+#     "https://finance.yahoo.com/news/dominos-nyse-dpz-reports-sales-101824438.html",
+#     "https://finance.yahoo.com/news/milton-surprise-damage-unleashed-powerful-215914303.html",
+#     "https://finance.yahoo.com/news/existing-home-sales-fall-in-august-despite-lower-mortgage-rates-171246859.html",
+#     "https://finance.yahoo.com/news/stock-market-today-dow-sp-500-close-record-highs-nasdaq-surges-amid-rate-cut-euphoria-14530400.html",
+#     "https://www.example.com/news/base-metals-demand",
+#     "https://finance.yahoo.com/news/stock-market-today-dow-ekes-out-another-record-amid-winning-week-for-stocks-200133466.html",
+#     "https://finance.yahoo.com/news/intel-gains-report-qualcomm-made-192727186.html",
+#     "https://www.example.com/news/kids-facing-sudden-wealth-syndrome",
+#     "https://finance.yahoo.com/news/elad-gil-latest-ai-bet-231412988.html",
+#     "https://finance.yahoo.com/news/meituan-63-stock-surge-faces-risks-china-consumer-malaise-00000000.html",
+#     "https://finance.yahoo.com/news/warren-buffett-could-bought-379-090600668.html",
+#     "https://finance.yahoo.com/news/sri-lankans-vote-tight-race-013000137.html",
+#     "https://finance.yahoo.com/news/look-back-perishable-food-stocks-q2-earnings-tyson-foods-vs-rest-pack-124148838.html",
+#     "https://finance.yahoo.com/news/fedex-reports-sales-below-analyst-estimates-q3-earnings-19480000.html",
+#     "https://finance.yahoo.com/news/millennial-fire-couple-shares-moving-180302476.html",
+#     "https://finance.yahoo.com/news/bank-korea-pivots-rate-cut-010705411.html",
+#     "https://finance.yahoo.com/news/summers-sees-fed-rate-projections-upended-higher-mortgage-rates-22102212.html",
+#     "https://finance.yahoo.com/news/september-apartment-rents-edge-higher-184341698.html",
+#     "https://finance.yahoo.com/news/fintech-market-stirs-celero-seeks-222143615.html",
+#     "https://finance.yahoo.com/news/gold-hovers-near-record-highs-heres-where-analysts-say-its-headed-next-165252182.html?guccounter=1&guce_referrer=aHR0cHM6Ly9maW5hbmNlLnlhaG9vLmNvbS8&guce_referrer_sig=AQAAAHIFMgfHo755iL5l7Zcn_xIsEMebkV8hKNWIBgHORjWZwdHjmGvk3GO-H0wAZRgdy40-AHGndzsPQbpR8AvPp-wiAvm2gmHz7QBz682z7c4EhVbPq3f1ZkBIWuuQm2bKYkNuSJ1_ynMO7oB__HB8F7rvDOGT7I1RFNwPw-oTo9JA",
+#     "https://finance.yahoo.com/news/us-postal-not-hike-stamp-182738612.html",
+#     "https://finance.yahoo.com/news/elon-musk-says-warren-buffett-positioning-kamala-harris-win-23000000.html",
+#     "https://finance.yahoo.com/news/mortgage-rates-fall-lowest-level-160400784.html?guccounter=1&guce_referrer=aHR0cHM6Ly9maW5hbmNlLnlhaG9vLmNvbS8&guce_referrer_sig=AQAAAHIFMgfHo755iL5l7Zcn_xIsEMebkV8hKNWIBgHORjWZwdHjmGvk3GO-H0wAZRgdy40-AHGndzsPQbpR8AvPp-wiAvm2gmHz7QBz682z7c4EhVbPq3f1ZkBIWuuQm2bKYkNuSJ1_ynMO7oB__HB8F7rvDOGT7I1RFNwPw-oTo9JA",
+#     "https://www.example.com/news/jim-cramer-stock-picks",
+#     "https://www.example.com/news/truth-social-stock",
+#     "https://finance.yahoo.com/news/why-have-mortgage-rates-gone-4-57-analysts-say-22160203.html",
+#     "https://finance.yahoo.com/news/china-unexpectedly-leaves-lending-rates-steady-markets-expect-cuts-soon-22384707.html",
+#     "https://finance.yahoo.com/news/sri-lankans-vote-presidential-election-013301889.html",
+#     "https://finance.yahoo.com/news/trump-media-nosedives-record-low-161159651.html",
+#     "https://finance.yahoo.com/news/mortgage-rates-inch-closer-to-6-following-fed-rate-cut-160309788.html",
+#     "https://finance.yahoo.com/news/defi-lender-sky-ratifies-plan-offboard-wrapped-bitcoin-223355875.html",
+#     "https://finance.yahoo.com/news/reflecting-hr-software-stocks-q2-earnings-paylocity-124149985.html",
+#     "https://www.example.com/news/russia-exit-tax-hike",
+#     "https://www.example.com/news/nike-ceo-appointment",
+#     "https://www.example.com/news/african-currencies-pressure",
+#     "https://finance.yahoo.com/news/billionaire-stanley-druckenmiller-sold-88-085100444.html",
+#     "https://finance.yahoo.com/news/why-social-media-companies-keep-183000571.html",
+#     "https://finance.yahoo.com/news/protocol-village-nexus-launches-worlds-234023194.html",
+#     "https://finance.yahoo.com/news/rich-enough-top-1-heres-213018631.html?guccounter=1&guce_referrer=aHR0cHM6Ly9maW5hbmNlLnlhaG9vLmNvbS9uZXdzLw&guce_referrer_sig=AQAAAEVfPVEASIT_EVG7Ar3pZP3EFIb7yCyfXZREkyo7-1b5dWIKzVBmgjFfwhaeKV7SIkNetwpNNPgFLPMpbl6g0kuXE7b5o0zS7FnvNfVKfAzP9AyUzqS8og85cBkWxxDWYZgvueIRl4OBSgE41R2jbhZsfZjOCCOPPu-qJObxPy9V",
+#     "https://finance.yahoo.com/news/sumitomo-hires-juan-toro-ceo-143000964.html",
+#     "https://finance.yahoo.com/news/brazil-trims-2024-spending-freeze-002356049.html",
+#     "https://finance.yahoo.com/news/mixed-mortgage-signals-inflation-continues-145424235.html",
+# ]
 
-docs = [WebBaseLoader(url).load() for url in urls]
-docs_list = [item for sublist in docs for item in sublist]
+# docs = [WebBaseLoader(url).load() for url in urls]
+# docs_list = [item for sublist in docs for item in sublist]
 
-text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
-    chunk_size=500, chunk_overlap=100
-)
-doc_splits = text_splitter.split_documents(docs_list)
+# text_splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+#     chunk_size=500, chunk_overlap=100
+# )
+# doc_splits = text_splitter.split_documents(docs_list)
 
-# Add to vectorDB
-vectorstore = Chroma.from_documents(
-    documents=doc_splits,
-    collection_name="rag-chroma",
-    embedding=OpenAIEmbeddings(),
-)
-retriever = vectorstore.as_retriever()
+# # Add to vectorDB
+# vectorstore = Chroma.from_documents(
+#     documents=doc_splits,
+#     collection_name="yahoo-news",
+#     embedding=OpenAIEmbeddings(),
+#     persist_directory="yf-persist",
+# )
 
+client = Chroma(persist_directory="yf-persist", embedding_function=OpenAIEmbeddings(), collection_name="yahoo-news")
+retriever = client.as_retriever(search_kwargs={"k": 3})
+
+ids = client._collection.get()['ids']
+print(f"number of documents: {len(ids)}")
 
 class GraphState(TypedDict):
     """
@@ -231,7 +190,9 @@ def generate(state):
     rag_chain = prompt | llm | StrOutputParser()
 
     # Run
-    generation = rag_chain.invoke({"context": documents, "question": question})
+    add_quest = "(Make sure to answer the question as shortly and concisely as possible. The answer should not be more than 100 characters and should not be more than 12 words.)"
+    quest = f"{add_quest}\n\n{question}"
+    generation = rag_chain.invoke({"context": documents, "question": quest})
     return {
         "keys": {"documents": documents, "question": question, "generation": generation}
     }
@@ -377,6 +338,7 @@ def web_search(state):
 
     return {"keys": {"documents": documents, "question": question}}
 
+
 ### Edges
 def decide_to_generate(state):
     """
@@ -433,6 +395,7 @@ workflow.add_edge("generate", END)
 # Compile
 app = workflow.compile()
 
+
 def retrieval_in_rag(question: str):
     try:
         # Correction for question not present in context
@@ -444,8 +407,8 @@ def retrieval_in_rag(question: str):
                 pprint.pprint(f"Output from node '{key}':")
                 pprint.pprint("---")
                 pprint.pprint(value["keys"], indent=2, width=80, depth=None)
-            if 'generate' in output and 'generation' in output['generate']['keys']:
-                generation_content = output['generate']['keys']['generation']
+            if "generate" in output and "generation" in output["generate"]["keys"]:
+                generation_content = output["generate"]["keys"]["generation"]
             pprint.pprint("\n---\n")
 
         return generation_content

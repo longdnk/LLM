@@ -1,0 +1,338 @@
+[
+  {
+    "link": "https://finance.yahoo.com/news/1-stock-split-stock-set-join-nvidia-apple-microsoft-amazon-alphabet-meta-1-trillion-club-19470000.html",
+    "date": "2024-09-19",
+    "context": "Broadcom's stock has grown by 465% over the last five years.",
+    "question": "How much has Broadcom's stock grown over the last five years?",
+    "answer": "465%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/1-stock-split-stock-set-join-nvidia-apple-microsoft-amazon-alphabet-meta-1-trillion-club-19470000.html",
+    "date": "2024-09-19",
+    "context": "Broadcom is currently valued at $761 billion.",
+    "question": "What is Broadcom's current market valuation?",
+    "answer": "$761 billion"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/1-stock-split-stock-set-join-nvidia-apple-microsoft-amazon-alphabet-meta-1-trillion-club-19470000.html",
+    "date": "2024-09-19",
+    "context": "Broadcom's stock needs to gain 31.4% to join the $1 trillion club.",
+    "question": "What percentage does Broadcom's stock need to gain to join the $1 trillion club?",
+    "answer": "31.4%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/us-30-year-fixed-rate-mortgage-falls-6-09-22103212.html",
+    "date": "2024-09-19",
+    "context": "The average rate on the 30-year fixed-rate mortgage fell to 6.09%.",
+    "question": "What is the current average rate for a 30-year fixed-rate mortgage?",
+    "answer": "6.09%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/us-30-year-fixed-rate-mortgage-falls-6-09-22103212.html",
+    "date": "2024-09-19",
+    "context": "The Fed cut its benchmark overnight interest rate by 50 basis points.",
+    "question": "How much did the Fed cut the benchmark overnight interest rate?",
+    "answer": "50 basis points"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/us-30-year-fixed-rate-mortgage-falls-6-09-22103212.html",
+    "date": "2024-09-19",
+    "context": "The average rate on the 15-year fixed-rate mortgage fell to 5.15%.",
+    "question": "What is the current average rate for a 15-year fixed-rate mortgage?",
+    "answer": "5.15%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/reflecting-hr-software-stocks-q2-earnings-paylocity-124149985.html",
+    "date": "2024-09-19",
+    "context": "Paylocity reported revenues of $357.3 million, up 15.8% year on year.",
+    "question": "What were Paylocity's reported revenues for Q2?",
+    "answer": "$357.3 million"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/reflecting-hr-software-stocks-q2-earnings-paylocity-124149985.html",
+    "date": "2024-09-19",
+    "context": "UiPath reported revenues of $316.3 million, up 10.1% year on year.",
+    "question": "What was UiPath's year-on-year revenue growth percentage?",
+    "answer": "10.1%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/reflecting-hr-software-stocks-q2-earnings-paylocity-124149985.html",
+    "date": "2024-09-19",
+    "context": "The 6 HR software stocks tracked reported a slower Q2.",
+    "question": "How did the 6 HR software stocks tracked perform in Q2?",
+    "answer": "They reported a slower Q2."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/defi-lender-sky-ratifies-plan-offboard-wrapped-bitcoin-223355875.html",
+    "date": "2024-09-19",
+    "context": "Sky will move forward with a plan to offboard wrapped bitcoin as collateral.",
+    "question": "What is the plan that Sky has ratified regarding wrapped bitcoin?",
+    "answer": "To offboard wrapped bitcoin as collateral."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/defi-lender-sky-ratifies-plan-offboard-wrapped-bitcoin-223355875.html",
+    "date": "2024-09-19",
+    "context": "The matter has been closely followed in crypto markets because Sky has $200 million of loans collateralized by the token.",
+    "question": "Why has the plan to offboard wrapped bitcoin been closely followed in crypto markets?",
+    "answer": "Because Sky has $200 million of loans collateralized by the token."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/defi-lender-sky-ratifies-plan-offboard-wrapped-bitcoin-223355875.html",
+    "date": "2024-09-19",
+    "context": "The Sky vote garnered overwhelming support from the project's community.",
+    "question": "What was the outcome of the Sky vote regarding the offboarding of wrapped bitcoin?",
+    "answer": "The vote garnered overwhelming support from the project's community."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/look-back-perishable-food-stocks-q2-earnings-tyson-foods-vs-rest-pack-124148838.html",
+    "date": "2024-09-19",
+    "context": "Tyson Foods reported revenues of $13.35 billion, up 1.6% year on year.",
+    "question": "What were Tyson Foods' revenues for the latest quarter?",
+    "answer": "$13.35 billion"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/look-back-perishable-food-stocks-q2-earnings-tyson-foods-vs-rest-pack-124148838.html",
+    "date": "2024-09-19",
+    "context": "The perishable food stocks tracked reported a strong Q2.",
+    "question": "What was the performance of the perishable food stocks in Q2?",
+    "answer": "They reported a strong Q2."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/look-back-perishable-food-stocks-q2-earnings-tyson-foods-vs-rest-pack-124148838.html",
+    "date": "2024-09-19",
+    "context": "Inflation progressed towards the Fed's 2% goal recently.",
+    "question": "What has inflation progressed towards recently?",
+    "answer": "The Fed's 2% goal."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/summers-sees-fed-rate-projections-upended-higher-mortgage-rates-22102212.html",
+    "date": "2024-09-19",
+    "context": "Summers suggested that inflation will probably prevent the Fed from lowering interest rates as much as expected.",
+    "question": "What did Summers say about the Fed's ability to lower interest rates?",
+    "answer": "Inflation will probably prevent the Fed from lowering interest rates as much as expected."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/summers-sees-fed-rate-projections-upended-higher-mortgage-rates-22102212.html",
+    "date": "2024-09-19",
+    "context": "Fed Chair Jerome Powell indicated that the neutral rate is probably significantly higher than it was in the pre-pandemic years.",
+    "question": "What did Jerome Powell indicate about the neutral rate?",
+    "answer": "It is probably significantly higher than it was in the pre-pandemic years."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/summers-sees-fed-rate-projections-upended-higher-mortgage-rates-22102212.html",
+    "date": "2024-09-19",
+    "context": "Summers suggested that higher fiscal borrowing indicates a higher neutral rate, of at least 4%.",
+    "question": "What neutral rate does Summers suggest based on higher fiscal borrowing?",
+    "answer": "At least 4%."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/fedex-reports-sales-below-analyst-estimates-q3-earnings-19480000.html",
+    "date": "2024-09-19",
+    "context": "FedEx fell short of market revenue expectations in Q3 with sales flat year on year.",
+    "question": "How did FedEx perform in terms of revenue expectations in Q3?",
+    "answer": "It fell short of market revenue expectations."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/fedex-reports-sales-below-analyst-estimates-q3-earnings-19480000.html",
+    "date": "2024-09-19",
+    "context": "FedEx's Q3 sales were flat year on year at $21.58 billion.",
+    "question": "What were FedEx's sales for Q3?",
+    "answer": "$21.58 billion"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/fedex-reports-sales-below-analyst-estimates-q3-earnings-19480000.html",
+    "date": "2024-09-19",
+    "context": "FedEx's non-GAAP profit was $3.60 per share.",
+    "question": "What was FedEx's non-GAAP profit per share?",
+    "answer": "$3.60"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/why-have-mortgage-rates-gone-4-57-analysts-say-22160203.html",
+    "date": "2024-09-19",
+    "context": "The 10-year yield and 30-year mortgage rates have been in a slow dance since 1971.",
+    "question": "How long have the 10-year yield and 30-year mortgage rates been trending together?",
+    "answer": "Since 1971."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/why-have-mortgage-rates-gone-4-57-analysts-say-22160203.html",
+    "date": "2024-09-19",
+    "context": "The bond market is moving quickly compared to the Fed.",
+    "question": "How does the bond market operate in relation to the Fed?",
+    "answer": "The bond market moves quickly compared to the Fed."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/why-have-mortgage-rates-gone-4-57-analysts-say-22160203.html",
+    "date": "2024-09-19",
+    "context": "To lower mortgage rates, three conditions must be met.",
+    "question": "What are the three conditions needed for mortgage rates to lower?",
+    "answer": "1. Mortgage spreads getting better, 2. Economic and labor data getting softer, 3. The Fed becoming more dovish."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/china-unexpectedly-leaves-lending-rates-steady-markets-expect-cuts-soon-22384707.html",
+    "date": "2024-09-20",
+    "context": "China unexpectedly left benchmark lending rates unchanged.",
+    "question": "What decision did China make regarding benchmark lending rates?",
+    "answer": "They left them unchanged."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/china-unexpectedly-leaves-lending-rates-steady-markets-expect-cuts-soon-22384707.html",
+    "date": "2024-09-20",
+    "context": "The one-year loan prime rate was kept at 3.35%.",
+    "question": "What is the current one-year loan prime rate in China?",
+    "answer": "3.35%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/china-unexpectedly-leaves-lending-rates-steady-markets-expect-cuts-soon-22384707.html",
+    "date": "2024-09-20",
+    "context": "Market watchers expect further stimulus measures to be rolled out.",
+    "question": "What do market watchers expect from Chinese authorities in response to the sluggish economy?",
+    "answer": "They expect further stimulus measures."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/crypto-investment-firm-deus-x-capital-unveils-defi-unit-23000000.html",
+    "date": "2024-09-20",
+    "context": "Deus X Capital launched Solstice Labs, a decentralized finance business.",
+    "question": "What new business did Deus X Capital launch?",
+    "answer": "Solstice Labs."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/crypto-investment-firm-deus-x-capital-unveils-defi-unit-23000000.html",
+    "date": "2024-09-20",
+    "context": "The first project of Solstice Labs will offer enhanced yield opportunities.",
+    "question": "What will be the focus of Solstice Labs' first project?",
+    "answer": "Enhanced yield opportunities."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/crypto-investment-firm-deus-x-capital-unveils-defi-unit-23000000.html",
+    "date": "2024-09-20",
+    "context": "Solstice Labs aims to deliver stable and consistent yields for investors.",
+    "question": "What goal does Solstice Labs have regarding yields for investors?",
+    "answer": "To deliver stable and consistent yields."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/elon-musk-says-warren-buffett-positioning-kamala-harris-win-23000000.html",
+    "date": "2024-09-19",
+    "context": "Hedge fund manager Paulson said he would pull his money off the market if Harris wins.",
+    "question": "What did hedge fund manager Paulson say he would do if Kamala Harris wins?",
+    "answer": "Pull his money off the market."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/elon-musk-says-warren-buffett-positioning-kamala-harris-win-23000000.html",
+    "date": "2024-09-19",
+    "context": "Elon Musk referenced Warren Buffett's actions regarding cash holdings.",
+    "question": "Who did Elon Musk refer to in context of positioning for an upcoming election?",
+    "answer": "Warren Buffett."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/elon-musk-says-warren-buffett-positioning-kamala-harris-win-23000000.html",
+    "date": "2024-09-19",
+    "context": "Musk believes Buffett is getting prepared for the possibility of a Harris win.",
+    "question": "What does Musk think Buffett is preparing for?",
+    "answer": "A potential Kamala Harris win."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/elon-musk-reacts-mark-cuban-says-23000000.html",
+    "date": "2024-09-18",
+    "context": "Mark Cuban expressed interest in acquiring X, formerly known as Twitter.",
+    "question": "What did Mark Cuban express interest in purchasing?",
+    "answer": "X, formerly known as Twitter."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/elon-musk-reacts-mark-cuban-says-23000000.html",
+    "date": "2024-09-18",
+    "context": "Elon Musk humorously reacted to Cuban's interest in buying X.",
+    "question": "How did Elon Musk react to Cuban's interest in buying X?",
+    "answer": "He humorously reacted with a laughing emoji."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/elon-musk-reacts-mark-cuban-says-23000000.html",
+    "date": "2024-09-18",
+    "context": "Cuban mentioned he would buy X in a heartbeat if he had enough money.",
+    "question": "What did Mark Cuban say about buying X?",
+    "answer": "He would buy it in a heartbeat if he had enough money."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/us-mortgage-rates-fall-further-stoking-housing-optimism-22192212.html",
+    "date": "2024-09-19",
+    "context": "Mortgage rates continued their decline, hitting the lowest level since early February 2023.",
+    "question": "When did mortgage rates last hit their lowest level before recent declines?",
+    "answer": "Early February 2023."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/us-mortgage-rates-fall-further-stoking-housing-optimism-22192212.html",
+    "date": "2024-09-19",
+    "context": "The average 30-year fixed mortgage rate fell to 6.09% from 6.20% last week.",
+    "question": "What was the average 30-year fixed mortgage rate last week?",
+    "answer": "6.20%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/us-mortgage-rates-fall-further-stoking-housing-optimism-22192212.html",
+    "date": "2024-09-19",
+    "context": "High prices and a shortage of desirable listings have sidelined buyers.",
+    "question": "What factors have continued to sideline buyers in the housing market?",
+    "answer": "High prices and a shortage of desirable listings."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/meituan-63-stock-surge-faces-risks-china-consumer-malaise-00000000.html",
+    "date": "2024-09-20",
+    "context": "Meituan's stock surged 63% this year despite macroeconomic challenges.",
+    "question": "By how much did Meituan's stock surge this year?",
+    "answer": "63%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/meituan-63-stock-surge-faces-risks-china-consumer-malaise-00000000.html",
+    "date": "2024-09-20",
+    "context": "Investors are concerned about whether Meituan's price gains can last.",
+    "question": "What are investors concerned about regarding Meituan's stock surge?",
+    "answer": "Whether its price gains can last amid macro weakness."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/meituan-63-stock-surge-faces-risks-china-consumer-malaise-00000000.html",
+    "date": "2024-09-20",
+    "context": "Meituan's cheaper price strategy has helped its sales growth.",
+    "question": "What strategy has Meituan implemented to boost its sales?",
+    "answer": "A focus on lower prices."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/q2-earnings-roundup-lamb-weston-nyse-lw-rest-shelf-stable-food-segment-00000000.html",
+    "date": "2024-09-19",
+    "context": "Lamb Weston reported revenues of $1.61 billion, down 4.9% year on year.",
+    "question": "What were Lamb Weston's revenues for the latest quarter?",
+    "answer": "$1.61 billion"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/q2-earnings-roundup-lamb-weston-nyse-lw-rest-shelf-stable-food-segment-00000000.html",
+    "date": "2024-09-19",
+    "context": "The shelf-stable food stocks tracked reported a mixed Q2.",
+    "question": "How did the shelf-stable food stocks perform in Q2?",
+    "answer": "They reported a mixed Q2."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/q2-earnings-roundup-lamb-weston-nyse-lw-rest-shelf-stable-food-segment-00000000.html",
+    "date": "2024-09-19",
+    "context": "Best known for its Grown in Idaho brand, Lamb Weston is a producer of potato products.",
+    "question": "What brand is Lamb Weston best known for?",
+    "answer": "Grown in Idaho."
+  },
+  {
+    "link": "https://finance.yahoo.com/news/stock-market-today-dow-sp-500-close-record-highs-nasdaq-surges-amid-rate-cut-euphoria-14530400.html",
+    "date": "2024-09-19",
+    "context": "Stocks soared, with Dow closing above 42,000 for the first time.",
+    "question": "What milestone did the Dow close above for the first time?",
+    "answer": "42,000"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/stock-market-today-dow-sp-500-close-record-highs-nasdaq-surges-amid-rate-cut-euphoria-14530400.html",
+    "date": "2024-09-19",
+    "context": "The S&P 500 climbed roughly 1.7% amid the rally.",
+    "question": "By approximately what percentage did the S&P 500 climb?",
+    "answer": "1.7%"
+  },
+  {
+    "link": "https://finance.yahoo.com/news/stock-market-today-dow-sp-500-close-record-highs-nasdaq-surges-amid-rate-cut-euphoria-14530400.html",
+    "date": "2024-09-19",
+    "context": "Bank of America believes the Fed will cut rates further by the end of the year.",
+    "question": "What does Bank of America forecast about future Fed rate cuts?",
+    "answer": "That the Fed will cut rates further by the end of the year."
+  }
+]
